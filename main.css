@@ -1,0 +1,66 @@
+*, *::before, *::after{
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: normal;
+}
+
+body{
+  padding:0;
+  margin:0;
+  background: rgb(69, 38, 240)
+  
+}
+
+.calc, h2{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.board{
+  background-color: black;
+  padding:2rem
+}
+
+.line{
+  display: flex;
+  flex-direction: column;
+  justify-content:;
+  align-items:baseline;
+  background-color: black;
+}
+
+p{
+  margin:0;
+  padding:0;
+}
+
+.display{
+  color:white;
+  display: flex;
+  justify-content:flex-end;
+  padding:0 0 .5rem 0;
+}
+
+.line{
+  display: flex;
+  flex-direction: row;
+  width: 
+}
+
+.btn{
+  padding:1rem;
+  margin:.2rem;
+  background-color: #cacaca;
+  border-radius: 20px;
+  border: grey;
+}
+
+#dot{
+  border: 1px solid red;
+}
+
+#zero{
+  border: 1px solid red;
+  padding-right:4.5rem
+}
