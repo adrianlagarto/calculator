@@ -6,13 +6,33 @@ function highlightGreyBtn(type){
     }, 1000)
 }
 
-function highlightYellow(sign){
+let sign_Value = ''
+
+function highlightYellow(sign, signValue){
   const yellow = document.querySelector(`${sign}`)
   yellow.style.backgroundColor = 'rgb(220,220,220)';
     setTimeout(function(){
       yellow.style.backgroundColor = 'rgb(239,154,58)';
-    }, 400)
+    }, 2000)
+
+    if(signValue==='total'){//compute everything
+  
+    }
+    if(signValue){//store the initial number and create a newNum to compute
+      
+      console.log('sign');
+    }
+
+
+    sign_Value = `${signValue}`
+    return console.log(sign_Value)
+
+
 }
+
+
+let newNum = '';
+const output = document.querySelector('#output');
 
 function highlightNum(num,value){
   const number = document.querySelector(`${num}`)
@@ -21,22 +41,14 @@ function highlightNum(num,value){
       number.style.backgroundColor = 'rgb(50,50,50)';
     }, 400)
     //^color hightlights when buttons are pressed ^
-
-    const output = document.querySelector('#output');
-    output.innerText = `${value}`
+    newNum += `${value}`
+    output.innerText = newNum;
+    return newNum;
+    //^display number^
 }
 
-
-const output = document.querySelector('#output');
-
-
-function numberStorage(number){
-  console.log(`${number}`)
-  output.innerText = `${number}`
+function compute(num, sign, num){
+  let total = 0;
+  return total
 }
 
-const button = document.querySelector('.line')
-
-button.addEventListener("click", e =>{
-  console.log();
-})
