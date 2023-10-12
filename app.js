@@ -6,7 +6,10 @@ function highlightGreyBtn(type){
     }, 1000)
 }
 
+let storeNewNum = ''
 let sign_Value = ''
+let newNum = '';
+let aboutToCompute = false
 
 function highlightYellow(sign, signValue){
   const yellow = document.querySelector(`${sign}`)
@@ -15,23 +18,25 @@ function highlightYellow(sign, signValue){
       yellow.style.backgroundColor = 'rgb(239,154,58)';
     }, 2000)
 
-    if(signValue==='total'){//compute everything
+    if(storeNewNum!== && newNum.includes(Number) && signValue){
+      console.log('its compute time')
+    }
+
+    if(signValue){//compute everything
+      console.log('using sign')
+      console.log(signValue)
+      console.log(storeNewNum)
+      console.log(newNum);
+      return aboutToCompute = true;
+    }
   
-    }
-    if(signValue){//store the initial number and create a newNum to compute
-      
-      console.log('sign');
-    }
-
-
-    sign_Value = `${signValue}`
-    return console.log(sign_Value)
-
-
+    return 
 }
 
+//storeNewNum  signvalue__  newNum
 
-let newNum = '';
+
+
 const output = document.querySelector('#output');
 
 function highlightNum(num,value){
@@ -41,14 +46,42 @@ function highlightNum(num,value){
       number.style.backgroundColor = 'rgb(50,50,50)';
     }, 400)
     //^color hightlights when buttons are pressed ^
+
+    if(aboutToCompute){
+      storeNewNum += newNum;
+      console.log('got two number')
+      newNum = '';
+      newNum += `${value}`
+      aboutToCompute = false
+      console.log(storeNewNum)
+      return output.innerText = newNum;
+      //^clears the display when doing computation^
+    }
+
+    
     newNum += `${value}`
     output.innerText = newNum;
+    console.log(newNum)
     return newNum;
     //^display number^
 }
 
-function compute(num, sign, num){
-  let total = 0;
-  return total
+function combine(storeNewNum, sign, newNum){
+
 }
+
+function compute(storeNum, sign, newNum){
+  let total = 0;
+
+  a = parseInt(storeNum);
+  b = parseInt(newNum);
+
+  if(sign === '/') return a / b;
+  if(sign === '*') return a * b;
+  if(sign === '-') return a - b;
+  if(sign === '+') return a + b;
+  
+}
+
+
 

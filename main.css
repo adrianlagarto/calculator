@@ -47,11 +47,13 @@ p{
 .display{
   color:white;
   display: flex;
+  flex-direction: column;
   justify-content:flex-end;
   align-items: flex-end;
   padding:3rem;
   font-size:x-large;
   border: 1px solid red;
+  height: 150px;
 }
 
 .line{
