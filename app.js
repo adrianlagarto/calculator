@@ -6,7 +6,7 @@ function highlightGreyBtn(type){
     }, 1000)
 }
 
-let storeNewNum = ''
+let storeNewNum = 0 ;
 let sign_Value = ''
 let newNum = '';
 let aboutToCompute = false
@@ -18,8 +18,12 @@ function highlightYellow(sign, signValue){
       yellow.style.backgroundColor = 'rgb(239,154,58)';
     }, 2000)
 
-    if(storeNewNum!== && newNum.includes(Number) && signValue){
+    if(storeNewNum!=='' && newNum!=='' && signValue.includes('+','-','*','/',)){
       console.log('its compute time')
+      result = compute(storeNewNum, sign_Value, newNum)
+      newSum = result;
+      console.log(newSum)
+      output.innerHTML = result;
     }
 
     if(signValue){//compute everything
@@ -27,10 +31,10 @@ function highlightYellow(sign, signValue){
       console.log(signValue)
       console.log(storeNewNum)
       console.log(newNum);
-      return aboutToCompute = true;
+      aboutToCompute = true;
     }
   
-    return 
+    return sign_Value = signValue;
 }
 
 //storeNewNum  signvalue__  newNum
@@ -51,9 +55,10 @@ function highlightNum(num,value){
       storeNewNum += newNum;
       console.log('got two number')
       newNum = '';
-      newNum += `${value}`
+      newNum += value
       aboutToCompute = false
       console.log(storeNewNum)
+      console.log(newNum)
       return output.innerText = newNum;
       //^clears the display when doing computation^
     }
@@ -61,7 +66,9 @@ function highlightNum(num,value){
     
     newNum += `${value}`
     output.innerText = newNum;
+    newNumInt = parseInt(newNum)
     console.log(newNum)
+    console.log(newNumInt)
     return newNum;
     //^display number^
 }
@@ -82,6 +89,4 @@ function compute(storeNum, sign, newNum){
   if(sign === '+') return a + b;
   
 }
-
-
 
