@@ -6,10 +6,13 @@ function highlightGreyBtn(type){
     }, 1000)
 }
 
-let storeNewNum = 0 ;
-let sign_Value = ''
-let newNum = '';
+const output = document.querySelector('#output');
+
+let defaultNum = '';
+let storeDefaultNum = '';
+let storeSignValue = '';
 let aboutToCompute = false
+let ready = 0;
 
 function highlightYellow(sign, signValue){
   const yellow = document.querySelector(`${sign}`)
@@ -17,31 +20,29 @@ function highlightYellow(sign, signValue){
     setTimeout(function(){
       yellow.style.backgroundColor = 'rgb(239,154,58)';
     }, 2000)
+    //^color hightlights when buttons are pressed ^
+    console.log(storeSignValue)
+    console.log(defaultNum);
+    console.log(storeDefaultNum);
+    console.log(ready)
 
-    if(storeNewNum!=='' && newNum!=='' && signValue.includes('+','-','*','/',)){
-      console.log('its compute time')
-      result = compute(storeNewNum, sign_Value, newNum)
-      newSum = result;
-      console.log(newSum)
-      output.innerHTML = result;
+    if(defaultNum!=='' && storeDefaultNum!==''){//this only works once
+      total = compute(storeDefaultNum, storeSignValue, defaultNum)
+      output.innerText = total
+      storeDefaultNum = total
+      defaultNum = ''
     }
+    storeSignValue = signValue
 
-    if(signValue){//compute everything
-      console.log('using sign')
-      console.log(signValue)
-      console.log(storeNewNum)
-      console.log(newNum);
-      aboutToCompute = true;
+    if(defaultNum !==''){
+      storeDefaultNum += defaultNum;
+      defaultNum = '';
     }
-  
-    return sign_Value = signValue;
 }
 
 //storeNewNum  signvalue__  newNum
 
 
-
-const output = document.querySelector('#output');
 
 function highlightNum(num,value){
   const number = document.querySelector(`${num}`)
@@ -51,35 +52,11 @@ function highlightNum(num,value){
     }, 400)
     //^color hightlights when buttons are pressed ^
 
-    if(aboutToCompute){
-      storeNewNum += newNum;
-      console.log('got two number')
-      newNum = '';
-      newNum += value
-      aboutToCompute = false
-      console.log(storeNewNum)
-      console.log(newNum)
-      return output.innerText = newNum;
-      //^clears the display when doing computation^
-    }
-
-    
-    newNum += `${value}`
-    output.innerText = newNum;
-    newNumInt = parseInt(newNum)
-    console.log(newNum)
-    console.log(newNumInt)
-    return newNum;
-    //^display number^
-}
-
-function combine(storeNewNum, sign, newNum){
-
+    defaultNum += `${value}`;
+    output.innerText = defaultNum
 }
 
 function compute(storeNum, sign, newNum){
-  let total = 0;
-
   a = parseInt(storeNum);
   b = parseInt(newNum);
 
@@ -87,6 +64,7 @@ function compute(storeNum, sign, newNum){
   if(sign === '*') return a * b;
   if(sign === '-') return a - b;
   if(sign === '+') return a + b;
-  
 }
+
+//console.log(compute('2','*','2'))
 
