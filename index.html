@@ -17,7 +17,7 @@
       </div>
 
       <div class="line">
-        <button class="btn grey" id="ac" onclick="highlightGreyBtn('#ac')">AC</button>
+        <button class="btn grey" id="ac" onclick="highlightGreyBtn('#ac','ac')">AC</button>
         <button class="btn grey" id="plusMinus" onclick="highlightGreyBtn('#plusMinus')">±</button>
         <button class="btn grey" id="percent" onclick="highlightGreyBtn('#percent')">%</button>
         <button class="btn yellow" id="divide" onclick="highlightYellow('#divide','/')">÷</button>
@@ -46,8 +46,8 @@
 
        <div class="line first-line">
         <button class="btn" id="zero" onclick="highlightNum('#zero',0)">0</button>
-        <button class="btn" id="dot" onclick="highlightNum('#dot')">.</button>
-        <button class="btn yellow" id="equal" onclick="highlightYellow('#equal','total')">=</button>
+        <button class="btn" id="dot" onclick="highlightNum('#dot','.')">.</button>
+        <button class="btn yellow" id="equal" onclick="equalOperator('#equal','total')">=</button>
       </div>
 
 
